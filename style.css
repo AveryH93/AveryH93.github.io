@@ -1,5 +1,5 @@
 body {
-    background: rgb(125, 198, 205);
+    background: rgb(205, 20, 205);
     color: rgb(45, 45, 45);
     padding: 10px;
     font-family: arial, sans-serif;
@@ -11,10 +11,11 @@ body {
 }
 
 nav {
-    background: rgb(239, 80, 41);
+    background: rgb(234, 246, 7);
     margin: 0 auto;
     display: flex;
     padding: 10px;
+    margin-bottom: 20px;
 }
 
 h1 {
@@ -43,7 +44,7 @@ a {
 }
 
 main {
-    background: rgb(245, 238, 219);
+    background: rgb(53, 27, 223);
     display: flex;
     margin-top: 20px
 }

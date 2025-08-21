@@ -1,5 +1,5 @@
 body {
-    background: rgb(205, 20, 205);
+    background: #2dcb;
     color: rgb(45, 45, 45);
     padding: 10px;
     font-family: arial, sans-serif;
@@ -11,7 +11,7 @@ body {
 }
 
 nav {
-    background: rgb(234, 246, 7);
+    background: #c258e5;
     margin: 0 auto;
     display: flex;
     padding: 10px;
@@ -44,13 +44,19 @@ a {
 }
 
 main {
-    background: rgb(53, 27, 223);
+    background: #fecd6b;
     display: flex;
     margin-top: 20px
 }
 
 .sidebar {
-    width: 200px;
+    margin-right: 25px;
+    padding: 10px;
+
+}
+
+.sidebar-img {
+    width: 200px
 }
 
 .content {

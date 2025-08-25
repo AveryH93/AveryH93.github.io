@@ -1,3 +1,4 @@
+/*Home styles */
 body {
     background-image: url("https://nebraskaexaminer.com/wp-content/uploads/2022/09/NCAA-VB-Finals-NU-vs-Texas-SB-6980-1536x1024.jpg");
     color: rgb(45, 45, 45);
@@ -25,6 +26,7 @@ h1 {
     color: white;
     flex: 1;
     margin: 0;
+    text-decoration: underline;
 }
 
 #nav-ul {
@@ -77,4 +79,32 @@ main {
 
 h2, h3 {
     margin: 0px;
+}
+
+/*Portfolio styles */
+
+.content h1 {
+    color: rgb(26, 32, 217);
+    text-decoration: underline;
+}
+
+#portfolio {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#portfolio li {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#portfolio li:hover {
+    background: #eee;
+}
+
+#portfolio a {
+    text-decoration: none;
+    color: rgb(26, 32, 217);
 }

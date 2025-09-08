@@ -3,7 +3,9 @@ body {
 }
 
 canvas {
-  background-color: lightblue;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/1/1a/Veterinary_Office_with_dog.JPG");
+  background-size: cover;
+  background-repeat: no-repeat;
   margin: 20px;
 }
 

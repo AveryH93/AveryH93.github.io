@@ -35,17 +35,24 @@ $(function () {
       createPlatform(425, 700, 70, 15, "rgba(27, 33, 33, 1)");
       createPlatform(625, 570, 35, 50, "rgba(210, 180, 140, 1)");
       createPlatform(415, 445, 70, 20, "rgba(238, 215, 122, 1)");
-      createPlatform();
-
+      createPlatform(615, 430, 35, 10, "rgba(250, 230, 215, 1)");
+      createPlatform(700, 501, 30, 12, "#8f8f8f"); 
+      createPlatform(822, 522,70, 5, "rgba(46, 40, 40, 1)");
+      createPlatform(1057, 445, 40, 12, "rgba(32, 29, 80, 1)");
+      createPlatform(1250, 650, 50, 18, "rgba(210, 180, 140, 1)");
 
 
     // TODO 3 - Create Collectables
-
+      createCollectable("blanket", 610, 390);
+      createCollectable("treats", 1300, 700);
+      createCollectable("puppy", 1250, 600);
+      createCollectable("toy", 835, 480);
 
 
     
     // TODO 4 - Create Cannons
-
+      createCannon("left", 575, 2000);
+      createCannon("right", 425, 2000);
 
     
     

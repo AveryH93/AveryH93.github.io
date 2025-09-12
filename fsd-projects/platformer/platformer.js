@@ -44,7 +44,7 @@ $(function () {
     createCollectable("blanket", 610, 390);
     createCollectable("treats", 1300, 700);
     createCollectable("puppy", 1250, 600);
-    createCollectable("puppy", 135, 480);
+    createCollectable("toy", 835, 480);
 
     // TODO 4 - Create Cannons
     createCannon("left", 575, 3000);

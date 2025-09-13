@@ -101,4 +101,5 @@ var collectableList = {
   blanket: { image: "images/collectables/dog-bed.png" },
   treats: { image: "images/collectables/bowl-of-food.jpeg" },
   puppy: { image: "images/collectables/doggy.jpg" },
+  toy: {image: "images/collectables/dog-toy.jpeg"},
 };

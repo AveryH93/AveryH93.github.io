@@ -27,12 +27,12 @@ $(function () {
     //////////////////////////////////
 
     // TODO 1 - Enable the Grid
-    toggleGrid();
+    //toggleGrid();
 
     // TODO 2 - Create Platforms
     createPlatform(125, 675, 100, 25, "black");
     createPlatform(425, 700, 70, 15, "rgba(27, 33, 33, 1)");
-    createPlatform(625, 570, 35, 50, "rgba(210, 180, 140, 1)");
+    createPlatform(615, 570, 35, 50, "rgba(210, 180, 140, 1)");
     createPlatform(415, 445, 70, 20, "rgba(238, 215, 122, 1)");
     createPlatform(615, 430, 35, 10, "rgba(250, 230, 215, 1)");
     createPlatform(700, 501, 50, 12, "#8f8f8f");

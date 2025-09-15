@@ -98,8 +98,8 @@ var collectableList = {
   kennedi: { image: "images/collectables/kennedi-head.png" },
   max: { image: "images/collectables/max-head.png" },
   steve: { image: "images/collectables/steve-head.png" },
-  blanket: { image: "images/collectables/dog-bed.png" },
-  treats: { image: "images/collectables/bowl-of-food.jpeg" },
-  puppy: { image: "images/collectables/doggy.jpg" },
-  toy: {image: "images/collectables/dog-toy.jpeg"},
+  blanket: { image: "images/collectables/dog-bed-removebg-preview.png" },
+  treats: { image: "images/collectables/bowl-of-food-removebg-preview.png" },
+  puppy: { image: "images/collectables/doggy-removebg-preview.png" },
+  toy: {image: "images/collectables/dog-toy-removebg-preview.png"},
 };

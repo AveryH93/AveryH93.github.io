@@ -6,9 +6,11 @@
     <script src="jquery.min.js"></script>
     <style>
       .box {
-        width: 70px;
-        height: 70px;
-        background-color: teal;
+        width: 66px;
+        height: 66px;
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfIBdb-eDOAsVghEGHgUHWOGunPhJtNcFIT6M6vKm5NdjMmro:https://icon2.cleanpng.com/20180713/zx/kisspng-volleyball-mikasa-sports-mikasa-mva-200-2008-summe-mikasa-5b48ddf3b51264.0508308615315020677417.jpg&s");
+        background-size: cover;
+        border-radius: 33px;
         font-size: 300%;
         text-align: center;
         user-select: none;
@@ -21,6 +23,8 @@
 
       .board {
         height: 100vh;
+        background-image: url("https://t3.ftcdn.net/jpg/04/22/84/12/360_F_422841241_OR69MNhNG3Sxl6pmrKwuoBZPaZpZLt1a.jpg");
+        background-size: cover;
       }
     </style>
     <!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -50,7 +54,7 @@
         });
 
         // Every 50 milliseconds, call the update Function (see below)
-        setInterval(update, 50);
+        var interval = setInterval(update, 50);
 
         // Every time the box is clicked, call the handleBoxClick Function (see below)
         box.on("click", handleBoxClick);
@@ -79,6 +83,8 @@
         var boardHeight = jQuery(window).height() - box.height();
         var randNumX = Math.random() * boardWidth;
         var randNumY = Math.random() * boardHeight;
+        var misClicks;
+        
         /**
          * This Function will be called 20 times/second.
          * Each time it is called, it should move the Box to a new location.
@@ -98,9 +104,9 @@
           }else if (positionY < 0) {
             speedY *= -1;
           }
-          
+        
         }
-
+        
         /**
          * This Function will be called each time the box is clicked.
          * Each time it is called, it should perform each of the following actions:
@@ -118,7 +124,15 @@
           speedX = 3 * points + 10;
           speedY = 3 * points + 10;
         }
-
+        board.on("click", handleBoardClick);
+        function handleBoardClick() {
+          if (misClicks === 10) {
+            endGame();
+          }
+        }
+        function endGame() {
+          clearInterval(interval);
+        }
 
         
       })();

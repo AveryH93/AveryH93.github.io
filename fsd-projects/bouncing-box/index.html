@@ -117,6 +117,10 @@
          * - move the box to the left side of the screen.
          */
         function handleBoxClick() {
+          if (gameOver) {
+            alert('Game Over! Refresh to start!');
+            return;
+          }
           randNumX = Math.random() * boardWidth;
           randNumY = Math.random() * boardHeight;
           positionX = randNumX;

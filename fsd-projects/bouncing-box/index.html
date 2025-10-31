@@ -51,7 +51,7 @@
         // update the boardWidth variable when the window is resized
         jQuery(window).on("resize", function () {
           boardWidth = board.width() - box.width();
-          boardHeight = jQuery(window).height() - box.height();
+          boardHeight = jQuery(window).height();
         });
 
         // Every 50 milliseconds, call the update Function (see below)
@@ -80,7 +80,7 @@
         var points = 0;
         var speedX = 10;
         var positionY = 0;
-        var speedY = 0;
+        var speedY = 5;
         var boardHeight = jQuery(window).height() - box.height();
         var randNumX = Math.random() * boardWidth;
         var randNumY = Math.random() * boardHeight;

@@ -94,7 +94,7 @@ var background = function (window) {
             }
             buildings.x = buildings.x - 1;
             if(buildings.x < -200){
-                buildings.x = canvasWidth;
+                buildings.x = canvasHeight;
             }
         } // end of update function - DO NOT DELETE
         

@@ -42,7 +42,6 @@ var background = function (window) {
             // you should modify both the height and color to suit your game
             var backgroundFill = draw.rect(canvasWidth,canvasHeight);
             background.addChild(backgroundFill);
-            
             // TODO 2: - Add a moon and starfield
             var moon = draw.bitmap("img/moon.png");
             moon.x = 1390;

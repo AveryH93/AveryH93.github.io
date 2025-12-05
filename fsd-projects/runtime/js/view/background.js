@@ -40,7 +40,7 @@ var background = function (window) {
             // TODO 1:
             // this currently fills the background with an obnoxious yellow;
             // you should modify both the height and color to suit your game
-            var backgroundFill = draw.rect(canvasWidth,canvasHeight,"rgba(14, 48, 220, 1)");
+            var backgroundFill = draw.rect(canvasWidth,canvasHeight);
             background.addChild(backgroundFill);
             
             // TODO 2: - Add a moon and starfield
@@ -67,7 +67,7 @@ var background = function (window) {
             }
             
             // TODO 3: Part 1 - Add a tree
-            tree = draw.bitmap("img/tree.png");
+            tree = draw.bitmap("img/christmas-tree-removebg-preview.png");
             tree.x = 0;
             tree.y = groundY + 90;
             background.addChild(tree);
@@ -91,10 +91,13 @@ var background = function (window) {
             // TODO 4: Part 2 - Parallax
             for(var i = 0; i < buildings.length; i++){
                 var eachBuilding = buildings[i];
+                eachBuilding.x -= 2;
+                if(eachBuilding.x < -100){
+                    eachBuilding.x = canvasWidth + 20;
+                }
             }
-            buildings.x = buildings.x - 1;
-            if(buildings.x < -200){
-                buildings.x = canvasHeight;
+            if(eachBuilding.x < -200){
+                eachBuilding.x = canvasWidth;
             }
         } // end of update function - DO NOT DELETE
         

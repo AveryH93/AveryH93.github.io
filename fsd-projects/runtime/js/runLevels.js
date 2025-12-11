@@ -36,6 +36,15 @@ createString(700, 275);
 createString(300, 320);
 createString(1333, 225);
 
+var enemy = game.createGameItem("enemy", 25);
+var redSquare = draw.rect(50, 50, "red");
+redSquare.x = -25;
+redSquare.y = -25;
+enemy.addChild(redSquare);
+enemy.x = 400;
+enemy.y = groundY - 50;
+game.addGameItem(enemy);
+
     function startLevel() {
       // TODO 13 goes below here
 

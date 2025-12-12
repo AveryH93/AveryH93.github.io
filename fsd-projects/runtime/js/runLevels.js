@@ -57,6 +57,26 @@ function createEnemy(x, y) {
   };
 };
 
+function createReward(x, y) {
+  var reward = game.createGameItem("reward", 25);
+  var blueSquare = draw.rect(50, 50, "blue");
+  blueSquare.x = -25;
+  blueSquare.y = -25;
+  reward.addChild(blueSquare);
+  reward.x = x;
+  reward.y = groundY - y;
+  game.addGameItem(reward);
+  reward.velocityX = -1;
+  reward.rotationalVelocity = 1;
+  reward.onPlayerCollision = function () {
+    game.changeIntegrity(-10);
+  };
+  reward.onProjectileCollision = function () {
+    game.increaseScore(100);
+    reward.fadeOut();
+  };
+};
+
 createEnemy(1200, groundY - 40);
 createEnemy(800, groundY - 300);
 createEnemy(400, groundY - 500);

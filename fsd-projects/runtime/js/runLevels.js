@@ -18,6 +18,7 @@ var runLevels = function (window) {
 
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE 
+
 function createString(x, y){
   var hitZoneSize = 25;
   var damageFromObstacle = 10;
@@ -36,15 +37,29 @@ createString(700, 275);
 createString(300, 320);
 createString(1333, 225);
 
-var enemy = game.createGameItem("enemy", 25);
-var redSquare = draw.rect(50, 50, "red");
-redSquare.x = -25;
-redSquare.y = -25;
-enemy.addChild(redSquare);
-enemy.x = 400;
-enemy.y = groundY - 50;
-game.addGameItem(enemy);
+function createEnemy(x, y) {
+  var enemy = game.createGameItem("enemy", 25);
+  var redSquare = draw.rect(50, 50, "red");
+  redSquare.x = -25;
+  redSquare.y = -25;
+  enemy.addChild(redSquare);
+  enemy.x = x;
+  enemy.y = groundY - y;
+  game.addGameItem(enemy);
+  enemy.velocityX = -1;
+  enemy.rotationalVelocity = 1;
+  enemy.onPlayerCollision = function () {
+    game.changeIntegrity(-10);
+  };
+  enemy.onProjectileCollision = function () {
+    game.increaseScore(100);
+    enemy.fadeOut();
+  };
+};
 
+createEnemy(1200, groundY - 40);
+createEnemy(800, groundY - 300);
+createEnemy(400, groundY - 500);
     function startLevel() {
       // TODO 13 goes below here
 

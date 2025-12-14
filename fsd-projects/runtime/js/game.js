@@ -53,6 +53,8 @@
                     });
                     halle.die();
                 }
+            } else if (health === 100 && amount > 0) {
+                increaseScore(amount * 10);
             }
         }
 

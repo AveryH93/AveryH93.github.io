@@ -4,6 +4,7 @@ var makeLevelData = function (window) {
   window.opspark.makeDataInGame = function (game) {
     // some useful constants
     var groundY = game.groundY;
+    var groundX = game.groundX;
 
     // this data will allow us to define all of the
     // behavior of our game
@@ -15,11 +16,15 @@ var makeLevelData = function (window) {
         number: 1,
         speed: -3,
         gameItems: [
+          { type: "string", x: 700, y: 275 },
+          { type: "string", x: 300, y: 320 },
+          { type: "string", x: 1333, y: 225 },
           { type: "enemy", x: 1200, y: groundY - 275 },
           { type: "enemy", x: 800, y: groundY - 300 },
           { type: "enemy", x: 400, y: groundY - 310 },
           { type: "reward", x: 2200, y: groundY - 300 },
           { type: "reward", x: 600, y: groundY - 300 },
+          { type: "marker", x: 3000, y: groundY - 300, color: "purple" },
         ],
       },
       {
@@ -27,13 +32,35 @@ var makeLevelData = function (window) {
         number: 2,
         speed: -3,
         gameItems: [
-          { type: "enemy", x: 1200, y: groundY - 275 },
-          { type: "enemy", x: 800, y: groundY - 300 },
-          { type: "enemy", x: 400, y: groundY - 310 },
-          { type: "enemy", x: 800, y: groundY - 300 },
-          { type: "reward", x: 2200, y: groundY - 300 },
-          { type: "reward", x: 600, y: groundY - 300 },
-          { type: "reward", x: 600, y: groundY - 300 },
+          { type: "string", x: groundX + 700, y: 275 },
+          { type: "string", x: groundX + 300, y: 320 },
+          { type: "string", x: groundX + 1333, y: 225 },
+          { type: "enemy", x: groundX + 1200, y: groundY - 275 },
+          { type: "enemy", x: groundX + 800, y: groundY - 300 },
+          { type: "enemy", x: groundX + 400, y: groundY - 310 },
+          { type: "enemy", x: groundX + 800, y: groundY - 300 },
+          { type: "reward", x: groundX + 2200, y: groundY - 300 },
+          { type: "reward", x: groundX + 600, y: groundY - 300 },
+          { type: "reward", x: groundX + 600, y: groundY - 300 },
+          { type: "marker", x: groundX + 3000, y: groundY - 300, color: "yellow" },
+        ],
+      },
+      {
+        name: "Christmas Tree Lighting",
+        number: 2,
+        speed: -3,
+        gameItems: [
+          { type: "string", x: groundX + 700, y: 275 },
+          { type: "string", x: groundX + 300, y: 320 },
+          { type: "string", x: groundX + 1333, y: 225 },
+          { type: "enemy", x: groundX + 1200, y: groundY - 275 },
+          { type: "enemy", x: groundX + 800, y: groundY - 300 },
+          { type: "enemy", x: groundX + 400, y: groundY - 310 },
+          { type: "enemy", x: groundX + 800, y: groundY - 300 },
+          { type: "reward", x: groundX + 2200, y: groundY - 300 },
+          { type: "reward", x: groundX + 600, y: groundY - 300 },
+          { type: "reward", x: groundX + 600, y: groundY - 300 },
+          { type: "marker", x: groundX + 3000, y: groundY - 300, color: "white" },
         ],
       },
     ];

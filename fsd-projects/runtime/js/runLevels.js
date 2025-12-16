@@ -56,7 +56,7 @@ var runLevels = function (window) {
 
     function createReward(x, y, velocity) {
       var reward = game.createGameItem("reward", 25);
-      var blueSquare = draw.rect(50, 50, "blue");
+      var blueSquare = draw.bitmap("img/closed-bible.png");
       blueSquare.x = -25;
       blueSquare.y = -25;
       reward.addChild(blueSquare);
@@ -74,9 +74,9 @@ var runLevels = function (window) {
       };
     };
 
-    function createMarker(x, y, velocity, color) {
+    function createMarker(x, y, velocity) {
       var marker = game.createGameItem("marker", 25);
-      var purpleSquare = draw.rect(50, 50, color);
+      var purpleSquare = draw.bitmap("img/baby-Jesus.jpeg");
       purpleSquare.x = -25;
       purpleSquare.y = -25;
       marker.addChild(purpleSquare);

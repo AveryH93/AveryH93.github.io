@@ -74,7 +74,7 @@ var runLevels = function (window) {
       };
     };
 
-    function createMarker(x, y, velocity) {
+    function createMarker(x, y) {
       var marker = game.createGameItem("marker", 25);
       var purpleSquare = draw.bitmap("img/baby-Jesus.jpeg");
       purpleSquare.x = -25;
@@ -83,8 +83,8 @@ var runLevels = function (window) {
       marker.x = x;
       marker.y = groundY - y;
       game.addGameItem(marker);
-      marker.velocityX = velocity ?? -1;
-      marker.rotationalVelocity = 1;
+      //marker.velocityX = velocity ?? -1;
+      //marker.rotationalVelocity = 1;
       marker.onPlayerCollision = function () {
         startLevel();
         marker.fadeOut();

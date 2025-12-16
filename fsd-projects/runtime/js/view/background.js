@@ -40,7 +40,7 @@ var background = function (window) {
             // TODO 1:
             // this currently fills the background with an obnoxious yellow;
             // you should modify both the height and color to suit your game
-            var backgroundFill = draw.rect(canvasWidth,canvasHeight, "rgba(32, 66, 190, 1)");
+            var backgroundFill = draw.rect(canvasWidth,canvasHeight, "runtime/img/Christmas-tree-background.jpg");
             background.addChild(backgroundFill);
             // TODO 2: - Add a moon and starfield
             var moon = draw.bitmap("img/moon.png");

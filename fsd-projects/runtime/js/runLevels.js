@@ -8,7 +8,6 @@ var runLevels = function (window) {
   window.opspark.runLevelInGame = function (game) {
     // some useful constants
     var groundY = game.groundY;
-    var groundX = game.groundX;
 
     // this data will allow us to define all of the
     // behavior of our game
@@ -34,11 +33,8 @@ var runLevels = function (window) {
       obstacleImage.scaleX = 0.125;
       obstacleImage.scaleY = 0.125;
     }
-    //createString(700, 275);
-    //createString(300, 320);
-    //createString(1333, 225);
 
-    function createEnemy(x, y) {
+    function createEnemy(x, y, velocity) {
       var enemy = game.createGameItem("enemy", 25);
       var redSquare = draw.rect(50, 50, "red");
       redSquare.x = -25;
@@ -47,7 +43,7 @@ var runLevels = function (window) {
       enemy.x = x;
       enemy.y = groundY - y;
       game.addGameItem(enemy);
-      enemy.velocityX = -1;
+      enemy.velocityX = velocity ?? -1;
       enemy.rotationalVelocity = 1;
       enemy.onPlayerCollision = function () {
         game.changeIntegrity(-10);
@@ -58,7 +54,7 @@ var runLevels = function (window) {
       };
     };
 
-    function createReward(x, y) {
+    function createReward(x, y, velocity) {
       var reward = game.createGameItem("reward", 25);
       var blueSquare = draw.rect(50, 50, "blue");
       blueSquare.x = -25;
@@ -67,7 +63,7 @@ var runLevels = function (window) {
       reward.x = x;
       reward.y = groundY - y;
       game.addGameItem(reward);
-      reward.velocityX = -1;
+      reward.velocityX = velocity ?? -1;
       reward.rotationalVelocity = 1;
       reward.onPlayerCollision = function () {
         game.changeIntegrity(10);
@@ -78,14 +74,7 @@ var runLevels = function (window) {
       };
     };
 
-    //createEnemy(1200, groundY - 275);
-    //createEnemy(800, groundY - 300);
-    //createEnemy(400, groundY - 310);
-
-    //createReward(2200, groundY - 300);
-    //createReward(600, groundY - 300);
-
-    function createMarker(x, y, color) {
+    function createMarker(x, y, velocity, color) {
       var marker = game.createGameItem("marker", 25);
       var purpleSquare = draw.rect(50, 50, color);
       purpleSquare.x = -25;
@@ -94,39 +83,34 @@ var runLevels = function (window) {
       marker.x = x;
       marker.y = groundY - y;
       game.addGameItem(marker);
-      marker.velocityX = -1;
+      marker.velocityX = velocity ?? -1;
       marker.rotationalVelocity = 1;
       marker.onPlayerCollision = function () {
         startLevel();
-        alert(`onPlayerCollision: Level = ${currentLevel}`);
+        marker.fadeOut();
       };
-      reward.onProjectileCollision = function () {
+      marker.onProjectileCollision = function () {
         startLevel();
-        alert(`onProjectileCollision: Level = ${currentLevel}`);
+        marker.fadeOut();
       };      
     }
 
     function startLevel() {
       // TODO 13 goes below here
 
-
-      alert(`startLevel: Level = ${currentLevel}`);
       if (currentLevel >= 0) {
-        alert(levelData[currentLevel].name);
-
-        for (let i = 0; i < levelData[currentLevel].gameItems.length; i++) {
-          
+        for (let i = 0; i < levelData[currentLevel].gameItems.length; i++) {         
           if (levelData[currentLevel].gameItems[i].type === "string") {
             createString(levelData[currentLevel].gameItems[i].x, levelData[currentLevel].gameItems[i].y);
           }
           else if (levelData[currentLevel].gameItems[i].type === "marker") {
-            //createMarker(levelData[currentLevel].gameItems[i].x, levelData[currentLevel].gameItems[i].y);
+            createMarker(levelData[currentLevel].gameItems[i].x, levelData[currentLevel].gameItems[i].y, levelData[currentLevel].speed, levelData[currentLevel].gameItems[i].color);
           }
           else if (levelData[currentLevel].gameItems[i].type === "enemy") {
-            createEnemy(levelData[currentLevel].gameItems[i].x, levelData[currentLevel].gameItems[i].y);
+            createEnemy(levelData[currentLevel].gameItems[i].x, levelData[currentLevel].gameItems[i].y, levelData[currentLevel].speed);
           }
           else if (levelData[currentLevel].gameItems[i].type === "reward") {
-            createReward(levelData[currentLevel].gameItems[i].x, levelData[currentLevel].gameItems[i].y);
+            createReward(levelData[currentLevel].gameItems[i].x, levelData[currentLevel].gameItems[i].y, levelData[currentLevel].speed);
           }
         }
       }
@@ -137,43 +121,13 @@ var runLevels = function (window) {
       if (++currentLevel === levelData.length) {
         startLevel = () => {
           console.log("Congratulations!");
+          alert("Congratulations!");
         };
       }
-      alert(`startLevel (new): Level = ${currentLevel}`);
     }
     if (currentLevel === 0) {
       startLevel();
     }
-    //createMarker(3000, groundY - 300);
-    
-    for (let i = 0; i < levelData[currentLevel - 1].gameItems.length; i++) {
-      
-      if (levelData[currentLevel - 1].gameItems[i].type === "marker") {
-        createMarker(levelData[currentLevel - 1].gameItems[i].x, levelData[currentLevel - 1].gameItems[i].y, levelData[currentLevel - 1].gameItems[i].color);
-      }
-    }
-    
-    /*
-    if (currentLevel >= 0) {
-      alert(levelData[currentLevel - 1].name);
-
-      for (let i = 0; i < levelData[currentLevel - 1].gameItems.length; i++) {
-        
-        if (levelData[currentLevel - 1].gameItems[i].type === "string") {
-          createString(levelData[currentLevel - 1].gameItems[i].x, levelData[currentLevel - 1].gameItems[i].y);
-        }
-        else if (levelData[currentLevel - 1].gameItems[i].type === "marker") {
-          createMarker(levelData[currentLevel - 1].gameItems[i].x, levelData[currentLevel - 1].gameItems[i].y, levelData[currentLevel - 1].gameItems[i].color);
-        }
-        else if (levelData[currentLevel - 1].gameItems[i].type === "enemy") {
-          createEnemy(levelData[currentLevel - 1].gameItems[i].x, levelData[currentLevel - 1].gameItems[i].y);
-        }
-        else if (levelData[currentLevel - 1].gameItems[i].type === "reward") {
-          createReward(levelData[currentLevel - 1].gameItems[i].x, levelData[currentLevel - 1].gameItems[i].y);
-        }
-      }
-    }
-    */
   };
 };
 

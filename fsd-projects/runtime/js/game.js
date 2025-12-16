@@ -54,6 +54,7 @@
                     halle.die();
                 }
             } else if (health === 100 && amount > 0) {
+                // if health is 100 and an attempt to increase health was made, we increase the score
                 increaseScore(amount * 10);
             }
         }

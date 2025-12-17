@@ -19,15 +19,15 @@ var runLevels = function (window) {
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE 
 
-    function createString(x, y){
+    function createString(x, y) {
       var hitZoneSize = 25;
       var damageFromObstacle = 10;
-      var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
-      sawBladeHitZone.x = x;
-      sawBladeHitZone.y = y;
-      game.addGameItem(sawBladeHitZone);
+      var stringHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+      stringHitZone.x = x;
+      stringHitZone.y = y;
+      game.addGameItem(stringHitZone);
       var obstacleImage = draw.bitmap("img/orange-string-removebg-preview.png");
-      sawBladeHitZone.addChild(obstacleImage);
+      stringHitZone.addChild(obstacleImage);
       obstacleImage.x = -25
       obstacleImage.y = -25
       obstacleImage.scaleX = 0.125;
@@ -41,7 +41,7 @@ var runLevels = function (window) {
       redSquare.y = -25;
       enemy.addChild(redSquare);
       enemy.x = x;
-      enemy.y = groundY - y;
+      enemy.y = y;
       game.addGameItem(enemy);
       enemy.velocityX = velocity ?? -1;
       enemy.rotationalVelocity = 1;
@@ -54,14 +54,14 @@ var runLevels = function (window) {
       };
     };
 
-    function createReward(x, y, velocity) {
+    function createReward1(x, y, velocity) {
       var reward = game.createGameItem("reward", 25);
-      var blueSquare = draw.bitmap("img/closed-bible.png");
+      var blueSquare = draw.rect(50, 50, "blue");
       blueSquare.x = -25;
       blueSquare.y = -25;
       reward.addChild(blueSquare);
       reward.x = x;
-      reward.y = groundY - y;
+      reward.y = y;
       game.addGameItem(reward);
       reward.velocityX = velocity ?? -1;
       reward.rotationalVelocity = 1;
@@ -74,17 +74,42 @@ var runLevels = function (window) {
       };
     };
 
-    function createMarker(x, y) {
+    function createReward(x, y, velocity) {
+      var hitZoneSize = 25;
+      var damageFromObstacle = 10;
+      var rewardHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+      rewardHitZone.x = x;
+      rewardHitZone.y = y;
+      rewardHitZone.velocityX = velocity ?? -1;
+      game.addGameItem(rewardHitZone);
+      var bibleImage = draw.bitmap("img/closed-bible.jpg");
+      rewardHitZone.addChild(bibleImage);
+      bibleImage.x = -25
+      bibleImage.y = -25
+      bibleImage.scaleX = 0.125;
+      bibleImage.scaleY = 0.125;
+      rewardHitZone.onPlayerCollision = function () {
+        game.changeIntegrity(10);
+        rewardHitZone.fadeOut();
+      };
+      rewardHitZone.onProjectileCollision = function () {
+        rewardHitZone.fadeOut();
+      };
+    }
+
+    function createMarker1(x, y, velocity) {
       var marker = game.createGameItem("marker", 25);
       var purpleSquare = draw.bitmap("img/baby-Jesus.jpeg");
       purpleSquare.x = -25;
       purpleSquare.y = -25;
       marker.addChild(purpleSquare);
       marker.x = x;
-      marker.y = groundY - y;
+      marker.y = y;
       game.addGameItem(marker);
-      //marker.velocityX = velocity ?? -1;
-      //marker.rotationalVelocity = 1;
+      marker.scaleX = 0.25;
+      marker.scaleY = 0.25;
+      marker.velocityX = velocity ?? -1;
+      marker.rotationalVelocity = 1;
       marker.onPlayerCollision = function () {
         startLevel();
         marker.fadeOut();
@@ -92,6 +117,30 @@ var runLevels = function (window) {
       marker.onProjectileCollision = function () {
         startLevel();
         marker.fadeOut();
+      };      
+    }
+
+    function createMarker(x, y, velocity) {
+      var hitZoneSize = 25;
+      var damageFromObstacle = 10;
+      var rewardHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+      rewardHitZone.x = x;
+      rewardHitZone.y = y;
+      rewardHitZone.velocityX = velocity ?? -1;
+      game.addGameItem(rewardHitZone);
+      var babyJesusImage = draw.bitmap("img/baby-Jesus.jpeg");
+      rewardHitZone.addChild(babyJesusImage);
+      babyJesusImage.x = -25
+      babyJesusImage.y = -25
+      babyJesusImage.scaleX = 0.25;
+      babyJesusImage.scaleY = 0.25;
+      rewardHitZone.onPlayerCollision = function () {
+        startLevel();
+        rewardHitZone.fadeOut();
+      };
+      rewardHitZone.onProjectileCollision = function () {
+        startLevel();
+        rewardHitZone.fadeOut();
       };      
     }
 
